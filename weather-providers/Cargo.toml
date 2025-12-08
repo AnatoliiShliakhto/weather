@@ -1,0 +1,28 @@
+[package]
+name = "weather-providers"
+edition.workspace = true
+version.workspace = true
+description.workspace = true
+keywords.workspace = true
+authors.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+
+[dependencies]
+async-trait.workspace = true
+chrono.workspace = true
+clap.workspace = true
+prost.workspace = true
+reqwest.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+tonic.workspace = true
+tonic-prost.workspace = true
+
+[dev-dependencies]
+tokio.workspace = true
+
+[build-dependencies]
+tonic-prost-build.workspace = true
+protoc-bin-vendored.workspace = true
