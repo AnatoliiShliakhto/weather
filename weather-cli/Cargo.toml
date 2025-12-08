@@ -26,6 +26,6 @@ weather-providers = { path = "../weather-providers" }
 assert_cmd.workspace = true
 predicates.workspace = true
 
-[[bin]]
-name = "weather"
-path = "src/main.rs"
+#[[bin]]
+#name = "weather"
+#path = "src/main.rs"
