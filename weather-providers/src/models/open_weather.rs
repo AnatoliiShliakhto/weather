@@ -25,7 +25,6 @@ use ::serde::Deserialize;
 //     pub country: String,
 // }
 
-
 #[derive(Debug, Deserialize)]
 pub struct OpenWeatherGeoResponse {
     pub name: String,

@@ -46,7 +46,9 @@ fn test_get_weather_mock_default() {
         .arg("mock")
         .assert()
         .success()
-        .stdout(predicate::str::contains("Fetching weather from 'MockWeather'"))
+        .stdout(predicate::str::contains(
+            "Fetching weather from 'MockWeather'",
+        ))
         .stdout(predicate::str::contains("Mock City"))
         .stdout(predicate::str::contains("Mock Country"))
         .stdout(predicate::str::contains("Sunny (Mock)"));
@@ -65,7 +67,9 @@ fn test_get_weather_with_date_mock() {
         .arg("mock")
         .assert()
         .success()
-        .stdout(predicate::str::contains("Fetching weather from 'MockWeather'"))
+        .stdout(predicate::str::contains(
+            "Fetching weather from 'MockWeather'",
+        ))
         .stdout(predicate::str::contains("Paris"));
 }
 

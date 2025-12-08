@@ -79,10 +79,7 @@ mod tests {
 
         // Mock provider should be present by default
         assert!(settings.providers.contains_key("mock"));
-        assert_eq!(
-            settings.providers["mock"].key,
-            Some("mock-key".to_string())
-        );
+        assert_eq!(settings.providers["mock"].key, Some("mock-key".to_string()));
     }
 
     #[test]
@@ -149,8 +146,12 @@ mod tests {
     #[test]
     fn test_btreemap_ordering() {
         let mut settings = Settings::default();
-        settings.addresses.insert("z".to_string(), "Last".to_string());
-        settings.addresses.insert("a".to_string(), "First".to_string());
+        settings
+            .addresses
+            .insert("z".to_string(), "Last".to_string());
+        settings
+            .addresses
+            .insert("a".to_string(), "First".to_string());
 
         let json_output = serde_json::to_string(&settings).unwrap();
 

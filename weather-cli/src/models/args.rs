@@ -91,7 +91,11 @@ mod tests {
     fn test_parse_get_basic() {
         let args = Cli::try_parse_from(["weather", "get", "London"]).unwrap();
         match args.command {
-            Some(AppCommands::Get { address, date, provider }) => {
+            Some(AppCommands::Get {
+                address,
+                date,
+                provider,
+            }) => {
                 assert_eq!(address, Some("London".to_string()));
                 assert_eq!(date, None);
                 assert_eq!(provider, None);
@@ -103,11 +107,22 @@ mod tests {
     #[test]
     fn test_parse_get_full() {
         let args = Cli::try_parse_from([
-            "weather", "get", "Paris", "--date", "2023-01-01", "--provider", "ow"
-        ]).unwrap();
+            "weather",
+            "get",
+            "Paris",
+            "--date",
+            "2023-01-01",
+            "--provider",
+            "ow",
+        ])
+        .unwrap();
 
         match args.command {
-            Some(AppCommands::Get { address, date, provider }) => {
+            Some(AppCommands::Get {
+                address,
+                date,
+                provider,
+            }) => {
                 assert_eq!(address, Some("Paris".to_string()));
                 assert_eq!(date, Some("2023-01-01".to_string()));
                 assert_eq!(provider, Some("ow".to_string()));
@@ -143,14 +158,18 @@ mod tests {
 
         // --remove conflicts with --address
         let result = Cli::try_parse_from([
-            "weather", "alias", "home", "--address", "London", "--remove"
+            "weather",
+            "alias",
+            "home",
+            "--address",
+            "London",
+            "--remove",
         ]);
         assert!(result.is_err());
 
         // Valid alias setting
-        let args = Cli::try_parse_from([
-            "weather", "alias", "home", "--address", "London, UK"
-        ]).unwrap();
+        let args =
+            Cli::try_parse_from(["weather", "alias", "home", "--address", "London, UK"]).unwrap();
 
         match args.command {
             Some(AppCommands::Alias { name, address, .. }) => {

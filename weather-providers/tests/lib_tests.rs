@@ -1,4 +1,4 @@
-use ::weather_providers::{create_provider, Provider};
+use ::weather_providers::{Provider, create_provider};
 
 #[tokio::test]
 async fn test_mock_provider_via_trait() {
@@ -24,13 +24,7 @@ async fn test_mock_provider_via_trait() {
 #[test]
 fn test_provider_enum_parsing() {
     // Test that string conversion to enum works as expected for the public API.
-    assert_eq!(
-        Provider::try_from("ow").unwrap(),
-        Provider::OpenWeather
-    );
-    assert_eq!(
-        Provider::try_from("mock").unwrap(),
-        Provider::Mock
-    );
+    assert_eq!(Provider::try_from("ow").unwrap(), Provider::OpenWeather);
+    assert_eq!(Provider::try_from("mock").unwrap(), Provider::Mock);
     assert!(Provider::try_from("invalid").is_err());
 }

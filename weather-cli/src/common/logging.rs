@@ -123,11 +123,15 @@ mod tests {
 
     #[test]
     fn test_create_file_appender() {
-        let temp_dir = std::env::temp_dir().join(format!("weather-cli-test-logs-{}", std::process::id()));
+        let temp_dir =
+            std::env::temp_dir().join(format!("weather-cli-test-logs-{}", std::process::id()));
         create_dir_all(&temp_dir).expect("Failed to create temp dir");
 
         let appender = create_file_appender(&temp_dir);
-        assert!(appender.is_ok(), "Should successfully create file appender in a valid directory");
+        assert!(
+            appender.is_ok(),
+            "Should successfully create file appender in a valid directory"
+        );
 
         let _ = std::fs::remove_dir_all(temp_dir);
     }

@@ -1,9 +1,9 @@
-mod error;
-mod state;
 mod config;
+mod error;
 pub mod logging;
+mod state;
 
 pub use self::{
-    error::{Result, Error},
+    error::{Error, Result},
     state::APP_STATE,
 };

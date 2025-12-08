@@ -1,5 +1,5 @@
-pub mod weather_api;
 pub mod open_weather;
+pub mod weather_api;
 
 use ::serde::{Deserialize, Serialize};
 

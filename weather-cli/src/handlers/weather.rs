@@ -4,7 +4,7 @@
 //! It acts as a bridge between the CLI input, the application configuration,
 //! and the specific weather provider services.
 
-use crate::{common::*};
+use crate::common::*;
 use ::weather_providers::{Provider, create_provider};
 
 /// Retrieves and displays weather information for a specified location.
@@ -46,7 +46,7 @@ pub async fn get_weather(
     let address = resolve_address(address)?;
 
     println!("Fetching weather from '{provider}' for '{address}'...");
-    
+
     let weather_provider = create_provider(provider);
     let weather_info = weather_provider
         .get_weather(api_key.as_deref(), &address, date.as_deref())
@@ -83,7 +83,7 @@ fn resolve_provider(provider_input: Option<String>) -> Result<(Provider, Option<
             .transpose()?
             .unwrap_or(Provider::Mock),
     };
-    
+
     let api_key = config
         .providers
         .get(provider.id())
@@ -91,7 +91,8 @@ fn resolve_provider(provider_input: Option<String>) -> Result<(Provider, Option<
 
     if !provider.is_mock() && api_key.is_none() {
         Err(format!(
-            "API key not found for provider '{provider}'. Please configure it first."))?;
+            "API key not found for provider '{provider}'. Please configure it first."
+        ))?;
     }
 
     Ok((provider, api_key))

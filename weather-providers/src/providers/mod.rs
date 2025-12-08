@@ -1,11 +1,9 @@
-mod mock;
 mod grpc_mock;
-mod weather_api;
+mod mock;
 mod open_weather;
+mod weather_api;
 
 pub use self::{
-    mock::MockProvider,
-    grpc_mock::GrpcMockProvider,
+    grpc_mock::GrpcMockProvider, mock::MockProvider, open_weather::OpenWeatherProvider,
     weather_api::WeatherApiProvider,
-    open_weather::OpenWeatherProvider,
 };
