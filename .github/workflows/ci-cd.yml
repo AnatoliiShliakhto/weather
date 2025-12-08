@@ -12,8 +12,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  BIN_NAME: weather-cli
-  FINAL_BIN_NAME: weather
+  BIN_NAME: weather
 
 jobs:
   # --- 1. Testing ---
@@ -90,16 +89,14 @@ jobs:
         if: matrix.os != 'windows-latest'
         run: |
           cd target/${{ matrix.target }}/release
-          mv ${{ env.BIN_NAME }} ${{ env.FINAL_BIN_NAME }}
-          tar -czf ../../../${{ matrix.archive_name }} ${{ env.FINAL_BIN_NAME }}
+          tar -czf ../../../${{ matrix.archive_name }} ${{ env.BIN_NAME }}
 
       # --- Packaging for Windows ---
       - name: Package binary (Windows)
         if: matrix.os == 'windows-latest'
         run: |
           cd target/${{ matrix.target }}/release
-          mv ${{ env.BIN_NAME }}.exe ${{ env.FINAL_BIN_NAME }}.exe
-          7z a ../../../${{ matrix.archive_name }} ${{ env.FINAL_BIN_NAME }}.exe
+          7z a ../../../${{ matrix.archive_name }} ${{ env.BIN_NAME }}.exe
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

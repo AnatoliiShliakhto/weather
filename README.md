@@ -2,7 +2,7 @@
 
 ![Rust](https://img.shields.io/badge/built_with-Rust-dca282.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Version](https://img.shields.io/badge/version-0.1.2-green.svg)
+![Version](https://img.shields.io/badge/version-0.1.3-green.svg)
 
 **Weather CLI** is a robust, extensible command-line application for fetching real-time and historical weather data. Built with Rust, it features a modular architecture that separates the CLI interface from the underlying weather providers, allowing for easy extension and integration.
 
