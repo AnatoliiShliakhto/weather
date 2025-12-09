@@ -4,12 +4,16 @@ use crate::{
     models::{WeatherInfo, weather_api::*},
     utils::date::*,
 };
+use ::async_trait::async_trait;
 use ::reqwest::Url;
+use ::tracing::instrument;
 
+#[derive(Debug)]
 pub struct WeatherApiProvider;
 
-#[async_trait::async_trait]
+#[async_trait]
 impl WeatherProvider for WeatherApiProvider {
+    #[instrument(fields(provider_key, address, date))]
     async fn get_weather(
         &self,
         provider_key: Option<&str>,

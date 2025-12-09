@@ -1,5 +1,5 @@
 [package]
-name = "weather-providers"
+name = "weather_providers"
 edition.workspace = true
 version.workspace = true
 description.workspace = true
@@ -19,6 +19,7 @@ serde.workspace = true
 thiserror.workspace = true
 tonic.workspace = true
 tonic-prost.workspace = true
+tracing.workspace = true
 
 [dev-dependencies]
 tokio.workspace = true

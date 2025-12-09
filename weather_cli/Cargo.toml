@@ -1,5 +1,5 @@
 [package]
-name = "weather-cli"
+name = "weather_cli"
 edition.workspace = true
 version.workspace = true
 description.workspace = true
@@ -20,11 +20,16 @@ serde.workspace = true
 serde_json.workspace = true
 dirs.workspace = true
 
-weather-providers = { path = "../weather-providers" }
+weather_providers = { path = "../weather_providers" }
 
 [dev-dependencies]
+criterion.workspace = true
 assert_cmd.workspace = true
 predicates.workspace = true
+
+[[bench]]
+name = "provider_bench"
+harness = false
 
 [[bin]]
 name = "weather"

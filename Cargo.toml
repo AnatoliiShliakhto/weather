@@ -1,7 +1,7 @@
 [workspace]
 resolver = "3"
-members = ["weather-cli", "weather-providers"]
-default-members = ["weather-cli"]
+members = ["weather_cli", "weather_providers"]
+default-members = ["weather_cli"]
 
 [workspace.package]
 edition = "2024"
@@ -17,10 +17,11 @@ license = "MIT"
 async-trait = { version = "0.1.89" }
 chrono = { version = "0.4.42" }
 clap = { version = "4.5.53", features = ["derive"] }
+criterion = { version = "0.8.1", features = ["async_tokio", "html_reports"] }
 dirs = { version = "6.0.0" }
 protoc-bin-vendored = { version = "3.2.0" }
 prost = { version = "0.14.1" }
-reqwest = { version = "0.12.24", features = ["json"] }
+reqwest = { version = "0.12.25", features = ["json"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = { version = "1.0.145" }
 thiserror = {  version = "2.0.17" }

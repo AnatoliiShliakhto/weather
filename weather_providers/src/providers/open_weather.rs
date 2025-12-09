@@ -5,11 +5,14 @@ use crate::{
     utils::date::*,
 };
 use ::reqwest::Url;
+use ::tracing::instrument;
 
+#[derive(Debug)]
 pub struct OpenWeatherProvider;
 
 #[async_trait::async_trait]
 impl WeatherProvider for OpenWeatherProvider {
+    #[instrument(fields(provider_key, address, date))]
     async fn get_weather(
         &self,
         provider_key: Option<&str>,
